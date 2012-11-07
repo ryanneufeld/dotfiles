@@ -3,10 +3,10 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="prose"
+export ZSH_THEME="ryanneufeld"
 
 # Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
+export CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"
@@ -21,7 +21,7 @@ plugins=(osx git ruby gem node npm heroku cap bundler brew cake rails3 redis-cli
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/racket/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Common junk
 [[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"

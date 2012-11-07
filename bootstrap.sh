@@ -24,7 +24,7 @@ function dep {
   else
     local msg="Missing $1"
   fi
-  
+
   # Save if dep not met
   if ! $i || [ -n "$msg" ] ; then
     missing+=($msg)
@@ -37,10 +37,9 @@ missing=()
 
 # --- Check deps --- #
 notice "Checking dependencies"
-dep "git"  "1.7"
-dep "hg"   "1.6"
+dep "git"  "1.8"
 dep "ruby" "1.8"
-dep "vim" "7.3"
+dep "vim"  "7.3"
 dep "tree" "1.5"
 
 if [ "${#missing[@]}" -gt "0" ]; then
@@ -66,7 +65,7 @@ if [ -d ~/.dotfiles ]; then
 else
   # --- Clone Repo --- #
   notice "Downloading"
-  git clone --recursive git://github.com/gf3/dotfiles.git ~/.dotfiles
+  git clone --recursive git://github.com/ryanneufeld/dotfiles.git ~/.dotfiles
 
   # --- Install --- #
   notice "Installing"

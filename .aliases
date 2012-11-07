@@ -6,23 +6,25 @@ alias ~='cd ~'
 alias ll='tree --dirsfirst -ChFupDaLg 1'
 
 # Utilities
-alias a="ack -ia"
-alias b="bundle exec"
 alias c="pygmentize -O style=monokai -f console256 -g"
-alias d="du -h -d=1"
-alias df="df -h"
-alias g="git"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
 alias localip="ipconfig getifaddr en1"
-alias mp="mvim -p"
 alias rkt="racket -il xrepl"
 alias tmux="tmux -2"
-alias view="vim -p -R"
-alias vp="vim -p"
 
-# Sync
-alias sync_irc="rsync -avz ~/Sites/IRC/ talos:/mnt/www/irc.gf3.ca/public"
+# Disabled stuff I might not want yet.
+# alias a="ack -ia"
+# alias b="bundle exec"
+# alias d="du -h -d=1"
+# alias df="df -h"
+# alias g="git"
+# alias mp="mvim -p"
+# alias view="vim -p -R"
+# alias vp="vim -p"
 
+alias start_memcache="launchctl load -w ~/Library/LaunchAgents/com.danga.memcached.plist"
+alias stop_memcache="launchctl unload -w ~/Library/LaunchAgents/com.danga.memcached.plist"
+alias restart_memcache="launchctl unload -w ~/Library/LaunchAgents/com.danga.memcached.plist && launchctl load -w ~/Library/LaunchAgents/com.danga.memcached.plist"

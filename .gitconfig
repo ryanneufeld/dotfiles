@@ -1,39 +1,36 @@
 [user]
-  name = Gianni Chiappetta
-  email = EMAIL
-[github]
-  user = gf3
-  token = TOKEN
+  name = Ryan Neufeld
 [alias]
   br = branch
   ci = commit
   co = checkout
   df = diff
+  pd = !~/jquery/pretty-diff/pretty-diff.js
+  gd = !~/jquery/pretty-diff/gist-diff.js
   g = grep -I
-  lg = log -p
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
   pb = publish-branch
-  pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
-  rb = rbranch
-  rc = rank-contributors
-  rv = review
   sm = show-merges
   st = status
   ksdiff = difftool -y -t Kaleidoscope
+  remotes = remote -v
+  tags = tags -l
+  branches = branch -l
 [color]
   ui = auto
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+# [color "branch"]
+#   current = yellow reverse
+#   local = yellow
+#   remote = green
+# [color "diff"]
+#   meta = yellow bold
+#   frag = magenta bold
+#   old = red bold
+#   new = green bold
+# [color "status"]
+#   added = yellow
+#   changed = green
+#   untracked = cyan
 [merge]
   log = true
 [rerere]
@@ -52,11 +49,13 @@
   insteadOf = "gist:"
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
-[difftool "Kaleidoscope"]
-  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[difftool]
-  prompt = false
-[diff]
-  tool = Kaleidoscope
 [diff "exif"]
   textconv = exiftool
+[core]
+  autocrlf = input
+  safecrlf = false
+  editor = subl -w
+[help]
+  autocorrect = 1
+[credential]
+  helper = osxkeychain
