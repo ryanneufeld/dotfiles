@@ -18,19 +18,19 @@
   branches = branch -l
 [color]
   ui = auto
-# [color "branch"]
-#   current = yellow reverse
-#   local = yellow
-#   remote = green
-# [color "diff"]
-#   meta = yellow bold
-#   frag = magenta bold
-#   old = red bold
-#   new = green bold
-# [color "status"]
-#   added = yellow
-#   changed = green
-#   untracked = cyan
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [merge]
   log = true
 [rerere]
@@ -52,6 +52,9 @@
 [diff "exif"]
   textconv = exiftool
 [core]
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+  whitespace = space-before-tab,indent-with-non-tab,trailing-space
   autocrlf = input
   safecrlf = false
   editor = subl -w
