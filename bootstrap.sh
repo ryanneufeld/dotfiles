@@ -1,8 +1,20 @@
 #!/bin/bash
 
+echo "Authorize sudo"
+sudo -v
+
 os=$(uname)
 apt=false
 brew=false
+
+function installZsh() {
+	local answer
+	echo -n "Install Zsh? [Y/n] "
+	read answer
+	if [ "${answer}" != "n" ]; then
+		[ $apt ] && sudo apt-get install zsh && sudo usermod -s /bin/zsh
+	fi
+}
 
 echo "Detecting OS"
 echo "This is a ${os} box."
@@ -19,5 +31,5 @@ if [ $os = "Darwin" ]; then
 fi
 
 echo "Checking for zsh:"
-type -p brew &> /dev/null && zsh=true
-[ $zsh ] && echo "Found Zsh!" || echo "Could not find Zsh!";
+type -p zsh &> /dev/null && zsh=true
+[ $zsh ] && echo "Found Zsh!" || echo "Zsh Not found" && installZsh;
