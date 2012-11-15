@@ -1,3 +1,4 @@
+#!/bin/zsh
 # --- Functions --- #
 # Notice title
 function notice { echo  "\033[1;32m=> $1\033[0m"; }
@@ -11,6 +12,12 @@ function c_list { echo  "  \033[1;32m✔\033[0m $1"; }
 # Error list item
 function e_list { echo  "  \033[1;31m✖\033[0m $1"; }
 
+function install_brew { ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" }
+
+function apt-install { sudo apt-get install $1 -y }
+
+function brew-install { brew install $1 }
+
 # Check for dependency
 function dep {
   # Check installed
@@ -18,11 +25,15 @@ function dep {
   type -p $1 &> /dev/null || i=false
 
   # Check version
-  if $i ; then
-    local version=$($1 --version | grep -oE -m 1 "[[:digit:]]+\.[[:digit:]]+\.?[[:digit:]]?")
-    [[ $version < $2 ]] && local msg="$1 version installed: $version, version needed: $2"
-  else
-    local msg="Missing $1"
+  if ! $i ; then
+    if [ $(uname) = "Linux" ]; then
+      apt-install $1
+    fi
+
+    if [ $(uname) = "Darwin" ]; then
+      brew-install $1
+    fi
+    # local msg="Missing $1"
   fi
 
   # Save if dep not met
@@ -37,10 +48,10 @@ missing=()
 
 # --- Check deps --- #
 notice "Checking dependencies"
-dep "git"  "1.8"
-dep "ruby" "1.8"
-dep "vim"  "7.3"
-dep "tree" "1.5"
+dep "git"
+dep "ruby"
+dep "vim"
+dep "tree"
 
 if [ "${#missing[@]}" -gt "0" ]; then
   error "Missing dependencies"
