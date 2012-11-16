@@ -24,5 +24,5 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Common junk
-[[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
+#[[ -s "$HOME/.commonrc" ]] && source "$HOME/.commonrc"
 
