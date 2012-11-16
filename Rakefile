@@ -12,6 +12,7 @@ $exclude = [
   '.git',
   '.gitignore',
   'bootstrap.sh',
+  'bootstrap.zsh',
   'Gemfile',
   'Gemfile.lock',
   'Rakefile',
