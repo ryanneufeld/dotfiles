@@ -52,6 +52,7 @@ dep "git"
 dep "ruby"
 dep "vim"
 dep "tree"
+dep "rake"
 
 if [ "${#missing[@]}" -gt "0" ]; then
   error "Missing dependencies"

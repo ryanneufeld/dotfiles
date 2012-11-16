@@ -9,10 +9,12 @@ brew=false
 
 function installZsh() {
 	local answer
-	echo -n "Install Zsh? [Y/n] "
+	echo "Zsh Not found"
+	echo -n "Install Zsh? [Y/n]? "
 	read answer
-	if [ "${answer}" != "n" ]; then
-		[ $apt ] && sudo apt-get install zsh && sudo usermod -s /bin/zsh
+	if [ "${answer}" != "n" -a $apt ]; then
+		sudo apt-get install zsh && sudo usermod $USER -s /bin/zsh
+		#[ $brew ] && brew install zsh && sudo usermod $USER -s /bin/zsh
 	fi
 }
 
@@ -32,4 +34,6 @@ fi
 
 echo "Checking for zsh:"
 type -p zsh &> /dev/null && zsh=true
-[ $zsh ] && echo "Found Zsh!" || echo "Zsh Not found" && installZsh;
+[ $zsh ] || installZsh;
+
+zsh bootstrap.zsh
